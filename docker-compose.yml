@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16
+    container_name: ozgur-postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo2026
+    volumes:
+      - ozgur-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+
+  odoo:
+    image: odoo:19
+    container_name: ozgur-odoo
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo2026
+    volumes:
+      - ozgur-odoo-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./config:/etc/odoo
+    restart: unless-stopped
+
+volumes:
+  ozgur-db-data:
+  ozgur-odoo-data:
