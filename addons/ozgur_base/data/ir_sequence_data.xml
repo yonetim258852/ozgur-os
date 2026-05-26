@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_ozgur_sale_order" model="ir.sequence">
+            <field name="name">Ozgur Satis Siparisi</field>
+            <field name="code">ozgur.sale.order</field>
+            <field name="prefix">ORS/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ozgur_account_move" model="ir.sequence">
+            <field name="name">Ozgur Fatura</field>
+            <field name="code">ozgur.account.move</field>
+            <field name="prefix">ORF/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ozgur_mrp_production" model="ir.sequence">
+            <field name="name">Ozgur Uretim Emri</field>
+            <field name="code">ozgur.mrp.production</field>
+            <field name="prefix">ORM/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
