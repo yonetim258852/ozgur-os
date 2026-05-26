@@ -1,0 +1,141 @@
+// =============================================================================
+//  ÖZGÜR RUBBER — DESIGN TOKENS + BOOTSTRAP/ODOO VARIABLE OVERRIDE
+//  This file is PREPENDED to both web.assets_backend and web.assets_frontend.
+//  It must compile before Odoo's own SCSS, so $-variables here win.
+// =============================================================================
+
+
+// =============================================================================
+//  LAYER 1 — DESIGN TOKENS (single source of truth)
+// =============================================================================
+
+// -------- Color: Navy (primary brand) --------
+$ozg-navy-50:  #EAEEF4;
+$ozg-navy-100: #C8D2E2;
+$ozg-navy-200: #95A6BD;
+$ozg-navy-400: #4D6890;
+$ozg-navy-600: #1F3758;   // ★ PRIMARY
+$ozg-navy-800: #142540;
+$ozg-navy-900: #0B1729;
+
+// -------- Color: Gold (brand accent) --------
+$ozg-gold-50:  #FAF4E8;
+$ozg-gold-100: #F0DDB5;
+$ozg-gold-200: #E5C683;
+$ozg-gold-400: #D5AD55;
+$ozg-gold-600: #B8893A;   // ★ ACCENT
+$ozg-gold-800: #8B6428;
+$ozg-gold-900: #5C411B;
+
+// -------- Color: Warm Stone (neutrals) --------
+$ozg-stone-50:  #FAFAF7;
+$ozg-stone-100: #F2EDE4;
+$ozg-stone-200: #E5DED1;
+$ozg-stone-400: #A8A095;
+$ozg-stone-600: #6B655C;
+$ozg-stone-800: #3F3B35;
+$ozg-stone-900: #1F1D19;
+
+// -------- Color: Semantic --------
+$ozg-success: #2D7A4F;
+$ozg-warning: #B8893A;     // gold reused as warning is intentional
+$ozg-danger:  #B33A3A;
+$ozg-info:    $ozg-navy-400;
+
+// -------- Semantic aliases --------
+$ozg-primary:           $ozg-navy-600;
+$ozg-primary-hover:     $ozg-navy-800;
+$ozg-primary-active:    $ozg-navy-900;
+$ozg-text-primary:      $ozg-stone-900;
+$ozg-text-secondary:    $ozg-stone-600;
+$ozg-text-disabled:     $ozg-stone-400;
+$ozg-bg-app:            #FFFFFF;
+$ozg-bg-surface:        $ozg-stone-50;
+$ozg-bg-surface-alt:    $ozg-stone-100;
+$ozg-border-subtle:     $ozg-stone-200;
+$ozg-border-strong:     $ozg-stone-400;
+
+// -------- Typography --------
+$ozg-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$ozg-font-mono: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace;
+
+// -------- Spacing scale (4px base) --------
+$ozg-space-1:  4px;
+$ozg-space-2:  8px;
+$ozg-space-3:  12px;
+$ozg-space-4:  16px;
+$ozg-space-6:  24px;
+$ozg-space-8:  32px;
+$ozg-space-12: 48px;
+$ozg-space-16: 64px;
+
+// -------- Radius scale --------
+$ozg-radius-sm: 4px;
+$ozg-radius-md: 6px;
+$ozg-radius-lg: 12px;
+
+
+// =============================================================================
+//  LAYER 2 — BOOTSTRAP VARIABLE OVERRIDE
+//  These are Bootstrap 5 SCSS variables. Defining them here BEFORE Odoo's
+//  bootstrap import means Bootstrap uses our values.
+// =============================================================================
+
+$primary:        $ozg-primary;
+$secondary:      $ozg-stone-600;
+$success:        $ozg-success;
+$info:           $ozg-info;
+$warning:        $ozg-warning;
+$danger:         $ozg-danger;
+$light:          $ozg-stone-50;
+$dark:           $ozg-stone-900;
+
+$body-bg:        $ozg-bg-app;
+$body-color:     $ozg-text-primary;
+
+$font-family-sans-serif: $ozg-font-sans;
+$font-family-monospace:  $ozg-font-mono;
+$font-family-base:       $ozg-font-sans;
+
+$border-radius:    $ozg-radius-md;
+$border-radius-sm: $ozg-radius-sm;
+$border-radius-lg: $ozg-radius-lg;
+
+$link-color:           $ozg-primary;
+$link-hover-color:     $ozg-primary-hover;
+$link-decoration:      none;
+$link-hover-decoration: underline;
+
+
+// =============================================================================
+//  LAYER 3 — ODOO VARIABLE OVERRIDE
+//  Odoo has its own $o-* SCSS variables. The complete list lives in:
+//    addons/web/static/src/scss/primary_variables.scss
+//    addons/web/static/src/scss/secondary_variables.scss
+//
+//  Below are the most commonly overridden ones. If a specific Odoo 19
+//  variable isn't here, INSPECT the file above inside your Docker container
+//  and add it. Do NOT guess at variable names that don't exist.
+// =============================================================================
+
+$o-brand-primary:        $ozg-primary;
+$o-brand-odoo:           $ozg-primary;
+$o-brand-secondary:      $ozg-gold-600;
+$o-enterprise-color:     $ozg-primary;
+
+$o-action:               $ozg-primary;
+$o-view-background-color: $ozg-bg-app;
+$o-webclient-background-color: $ozg-bg-app;
+$o-main-text-color:      $ozg-text-primary;
+$o-list-footer-bg-color: $ozg-stone-50;
+
+$o-form-lightsecondary:  $ozg-stone-200;
+$o-gray-100:             $ozg-stone-50;
+$o-gray-200:             $ozg-stone-100;
+$o-gray-300:             $ozg-stone-200;
+$o-gray-400:             $ozg-stone-400;
+$o-gray-500:             $ozg-stone-600;
+$o-gray-600:             $ozg-stone-600;
+$o-gray-700:             $ozg-stone-800;
+$o-gray-800:             $ozg-stone-800;
+$o-gray-900:             $ozg-stone-900;

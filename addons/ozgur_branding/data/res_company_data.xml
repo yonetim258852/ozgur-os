@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Non-binary company-level settings can go here.
+         Binary fields (logo, favicon) are set via post_init_hook (hooks.py).
+         Add report header/footer customizations here later as needed. -->
+    <data noupdate="0">
+        <!-- placeholder; intentionally empty in Faz 1 -->
+    </data>
+</odoo>

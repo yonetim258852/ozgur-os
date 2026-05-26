@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Faz 1 scope: hiçbir layout template'ini override etmiyoruz.
+        Logo değişimi res.company.logo üzerinden post_init_hook ile yapılıyor;
+        Odoo zaten login + navbar'da o alandan okuyor.
+
+        Bu dosya, sonraki faz için (login arka planı, app launcher kart stili)
+        hazır iskelet olarak duruyor. Şu an boş bırak — TODO bölümünde yer alıyor.
+    -->
+</odoo>
