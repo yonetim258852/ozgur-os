@@ -2,26 +2,19 @@
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-
-# Odoo
-*.log
-.idea/
-.vscode/
-*.swp
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Docker / Postgres veri
-postgres-data/
-odoo-data/
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
 
 # Secrets
 .env
 *.secret
-secrets/
-
-# Config ? buras? ?nemli
-# config/odoo.conf  ? Bu dosya GitHub'a gidebilir ??nk? ?ifreler ?rnek
