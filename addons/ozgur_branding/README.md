@@ -33,7 +33,45 @@ docker compose restart odoo
 
 ## Bilinçli sapmalar
 
-Yok. Doctrine'in 10 maddesinin tümüne uyuldu:
+**1. `__init__.py`'de `_post_init_apply_branding` re-export ediliyor** (brief §4.1'den minimal sapma).
+   - Brief'teki tek satır: `from . import hooks`
+   - Uygulanan: ek olarak `from .hooks import _post_init_apply_branding`
+   - **Gerekçe:** Odoo 19'un `odoo/modules/loading.py:243` satırı post_init_hook'u
+     `getattr(py_module, post_init)(env)` ile çağırıyor; burada `py_module` modülün
+     `__init__.py`'siyle yüklenmiş package objesi. Sadece `from . import hooks`
+     yapıldığında `_post_init_apply_branding` package seviyesinde değil
+     `package.hooks` altında oluyor → `AttributeError`. Re-export bunu giderir.
+     Doğrulandı: install hatası `AttributeError: module 'odoo.addons.ozgur_branding'
+     has no attribute '_post_init_apply_branding'`.
+   - **Etkisi:** Doctrine ihlali yok (brief'in kod örneğinden minimal pratik düzeltme,
+     gerçek davranış brief'in niyetiyle aynı).
+
+**2. Manifest `category` 'Theme' → 'Customization'** (brief §4.2'den sapma).
+   - **Gerekçe:** Odoo `website` modülü `addons/website/models/ir_module_module.py`
+     `get_themes_domain()` ile `category_id = base.module_category_theme` olan
+     modülleri "theme" sayıyor. `website._get_active_addons_list(website_id=1)`
+     bu theme'lerden aktif olmayanları frontend bundle listesinden DÜŞÜRÜYOR.
+     Brief'in `'category': 'Theme'` değeri tam olarak bu filtreye yakalıyor →
+     `/web/login` + portal + website-public sayfalarda SCSS asset'lerimiz
+     bundle'a girmiyor, branding görünmüyor.
+   - Doğrulama: `_get_active_addons_list(website_id=1)` çağrısı `'Theme'`
+     kategorisinde iken 194 modül (ozgur düşmüş), `'Customization'`'a
+     değiştirince 195 (ozgur dahil).
+   - **Uygulanan:** `category` = `'Customization'`.
+   - **Etkisi:** Brief'in "login yüzeylerini etkiler" hedefiyle uyumlu;
+     theme aktivasyon UI'ı (Website Settings → Theme picker) bu modülü
+     "theme" olarak göstermez (zaten gerçek bir theme değil — global SCSS
+     override modülü).
+
+**3. Manifest'e `website.assets_frontend` bundle eklendi** (brief §4.2'den ek).
+   - **Gerekçe:** Sigorta. Yukarıdaki #2'deki category fix asıl çözüm; bu ek
+     bundle declaration `website` modülü kurulu olduğu senaryolarda asset'in
+     website renderi'na ayrıca dahil olmasını garanti ediyor.
+   - **Uygulanan:** Aynı 3 SCSS dosyasını `website.assets_frontend` bundle'ına
+     da ekledik (prepend variables + fonts + branding).
+   - **Etkisi:** `website` modülü yoksa bu bundle no-op olur; zarar yok.
+
+Doctrine'in 10 maddesinin tümüne uyuldu:
 - Odoo core'a dokunulmadı (sadece `addons/ozgur_branding/` altına yazıldı)
 - Repo root dosyaları (`docker-compose.yml`, `config/odoo.conf`, repo `README.md`) değiştirilmedi
 - `position="replace"` kullanılmadı (XML view inheritance yok zaten Faz 1'de)
