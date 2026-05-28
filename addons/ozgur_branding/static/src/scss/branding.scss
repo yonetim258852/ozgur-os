@@ -1,0 +1,36 @@
+// =============================================================================
+//  Light component refinements — applied AFTER Odoo's SCSS compiles.
+//  Keep this file MINIMAL in Faz 1. No selector wars, no !important.
+// =============================================================================
+
+// Mono font for numeric fields — high-value win
+.o_field_widget.o_field_monetary input,
+.o_field_widget.o_field_float input,
+.o_field_widget.o_field_integer input,
+.o_field_widget.o_field_percentage input {
+    font-family: $ozg-font-mono;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+}
+
+// List view numeric cells — same treatment
+.o_list_view .o_data_cell.o_list_number {
+    font-family: $ozg-font-mono;
+    font-variant-numeric: tabular-nums;
+}
+
+// Form group section title — give breathing room
+// (Odoo's <separator string="..."/> renders as h3)
+.o_form_view .o_horizontal_separator {
+    margin-top: $ozg-space-6;
+    margin-bottom: $ozg-space-3;
+    padding-bottom: $ozg-space-2;
+    border-bottom: 1px solid $ozg-border-subtle;
+    font-weight: 500;
+    color: $ozg-text-primary;
+}
+
+// Statusbar — subtle refinement
+.o_statusbar_status .btn {
+    border-radius: $ozg-radius-md;
+}
