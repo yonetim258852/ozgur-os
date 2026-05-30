@@ -1,0 +1,13 @@
+{
+  "_note": "SMOKE-TEST SAMPLE ONLY. Codes prefixed SEED- are NOT authoritative GİB codes. For a real load set TAX_OFFICES_SOURCE_URL to the authoritative source; codes there overwrite by natural key (code).",
+  "tax_offices": [
+    { "code": "SEED-34-001", "name": "Boğaziçi Vergi Dairesi",   "province": "İstanbul", "district": "Beşiktaş" },
+    { "code": "SEED-34-002", "name": "Marmara Vergi Dairesi",     "province": "İstanbul", "district": "Bakırköy" },
+    { "code": "SEED-34-003", "name": "Kadıköy Vergi Dairesi",     "province": "İstanbul", "district": "Kadıköy" },
+    { "code": "SEED-06-001", "name": "Başkent Vergi Dairesi",     "province": "Ankara",   "district": "Çankaya" },
+    { "code": "SEED-06-002", "name": "Ulus Vergi Dairesi",        "province": "Ankara",   "district": "Altındağ" },
+    { "code": "SEED-35-001", "name": "Konak Vergi Dairesi",       "province": "İzmir",    "district": "Konak" },
+    { "code": "SEED-16-001", "name": "Osmangazi Vergi Dairesi",   "province": "Bursa",    "district": "Osmangazi" },
+    { "code": "SEED-41-001", "name": "Gebze Vergi Dairesi",       "province": "Kocaeli",  "district": "Gebze" }
+  ]
+}
