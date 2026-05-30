@@ -1,0 +1,20 @@
+[
+  { "code": "SALES_INVOICE",        "name": "Sales Invoice",          "name_tr": "Satış Faturası",            "direction": "sales",    "erp_neutral_key": "invoice.sale" },
+  { "code": "PURCHASE_INVOICE",     "name": "Purchase Invoice",       "name_tr": "Alış Faturası",             "direction": "purchase", "erp_neutral_key": "invoice.purchase" },
+  { "code": "SALES_CREDIT_NOTE",    "name": "Sales Credit Note",      "name_tr": "Satış İade Faturası",       "direction": "sales",    "erp_neutral_key": "credit_note.sale" },
+  { "code": "PURCHASE_CREDIT_NOTE", "name": "Purchase Credit Note",   "name_tr": "Alış İade Faturası",        "direction": "purchase", "erp_neutral_key": "credit_note.purchase" },
+  { "code": "E_INVOICE",            "name": "E-Invoice",              "name_tr": "E-Fatura",                  "direction": "both",     "erp_neutral_key": "invoice.einvoice" },
+  { "code": "E_ARCHIVE",            "name": "E-Archive Invoice",      "name_tr": "E-Arşiv Fatura",            "direction": "sales",    "erp_neutral_key": "invoice.earchive" },
+  { "code": "WAYBILL",              "name": "Waybill / Delivery Note","name_tr": "İrsaliye",                  "direction": "both",     "erp_neutral_key": "waybill" },
+  { "code": "E_WAYBILL",            "name": "E-Waybill",              "name_tr": "E-İrsaliye",                "direction": "both",     "erp_neutral_key": "waybill.ewaybill" },
+  { "code": "PROFORMA",             "name": "Proforma Invoice",       "name_tr": "Proforma Fatura",           "direction": "sales",    "erp_neutral_key": "invoice.proforma" },
+  { "code": "DEBIT_NOTE",           "name": "Debit Note",             "name_tr": "Borç Dekontu",              "direction": "both",     "erp_neutral_key": "debit_note" },
+  { "code": "RECEIPT",              "name": "Receipt",                "name_tr": "Makbuz / Tahsilat",         "direction": "both",     "erp_neutral_key": "receipt" },
+  { "code": "SELF_EMPLOYMENT_RECEIPT", "name": "Self-Employment Receipt", "name_tr": "Serbest Meslek Makbuzu", "direction": "both",   "erp_neutral_key": "receipt.self_employment" },
+  { "code": "PRODUCER_RECEIPT",     "name": "Producer Receipt",       "name_tr": "Müstahsil Makbuzu",         "direction": "purchase", "erp_neutral_key": "receipt.producer" },
+  { "code": "EXPENSE_VOUCHER",      "name": "Expense Voucher",        "name_tr": "Gider Pusulası",            "direction": "purchase", "erp_neutral_key": "voucher.expense" },
+  { "code": "BANK_STATEMENT",       "name": "Bank Statement",         "name_tr": "Banka Ekstresi",            "direction": "none",     "erp_neutral_key": "bank_statement" },
+  { "code": "JOURNAL_ENTRY",        "name": "Journal Entry",          "name_tr": "Yevmiye Fişi / Mahsup",     "direction": "none",     "erp_neutral_key": "journal_entry" },
+  { "code": "COLLECTION_VOUCHER",   "name": "Collection Voucher",     "name_tr": "Tahsil Fişi",               "direction": "none",     "erp_neutral_key": "voucher.collection" },
+  { "code": "PAYMENT_VOUCHER",      "name": "Payment Voucher",        "name_tr": "Tediye Fişi",               "direction": "none",     "erp_neutral_key": "voucher.payment" }
+]
